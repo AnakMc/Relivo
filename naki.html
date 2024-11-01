@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviloRoleplay - Formulir Pendaftaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-image: url('https://imgur.com/D646GuT.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .rules {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.85em;
+            color: #fff;
+        }
+        .footer .highlight {
+            color: darkred;
+            font-weight: bold;
+            font-size: 1em;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+    <script>
+        function kirimKeWhatsApp(event) {
+            event.preventDefault(); // Mencegah submit form biasa
+            
+            // Ambil nilai dari form
+            const nama = document.getElementById("nama").value;
+            const namaMc = document.getElementById("nama_mc").value;
+            const namaRp = document.getElementById("nama_rp").value;
+            const umur = document.getElementById("umur").value;
+            const rp = document.getElementById("rp").value;
+            const ooc = document.getElementById("ooc").value;
+            const ic = document.getElementById("ic").value;
+            const tujuan = document.getElementById("tujuan").value;
+            const headset = document.getElementById("headset").value;
+            const pengalaman = document.getElementById("pengalaman").value;
+            const akunTtYt = document.getElementById("akun_tt_yt").value;
+            const siapVoice = document.getElementById("siap_voice").value;
+            const siapOn = document.getElementById("siap_on").value;
+
+            // Susun pesan WhatsApp
+            const pesan = `Halo Admin, saya ingin mendaftar di ReviloRoleplay. Berikut data saya:%0A` +
+                `Nama: ${nama}%0A` +
+                `Nama Minecraft: ${namaMc}%0A` +
+                `Nama Roleplay: ${namaRp}%0A` +
+                `Umur: ${umur}%0A` +
+                `Apa itu RP: ${rp}%0A` +
+                `Apa itu OOC: ${ooc}%0A` +
+                `Apa itu IC: ${ic}%0A` +
+                `Tujuan join OHC: ${tujuan}%0A` +
+                `Bisa memakai headset/mic saat RP: ${headset}%0A` +
+                `Punya pengalaman RP: ${pengalaman}%0A` +
+                `Punya akun TikTok/YouTube: ${akunTtYt}%0A` +
+                `Siap voice: ${siapVoice}%0A` +
+                `Siap online saat ada RP: ${siapOn}`;
+
+            // Buat link WhatsApp
+            const nomorWa = "6282189803208";
+            const urlWa = `https://wa.me/${nomorWa}?text=${pesan}`;
+
+            // Buka WhatsApp dengan pesan yang sudah diisi
+            window.open(urlWa, "_blank");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulir Pendaftaran - ReviloRoleplay</h1>
+        <form onsubmit="kirimKeWhatsApp(event)">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="nama_mc">Nama Minecraft:</label>
+            <input type="text" id="nama_mc" name="nama_mc" required>
+
+            <label for="nama_rp">Nama Roleplay:</label>
+            <input type="text" id="nama_rp" name="nama_rp" required>
+
+            <label for="umur">Umur:</label>
+            <input type="number" id="umur" name="umur" required>
+
+            <label for="rp">Apa itu RP (wajib tahu):</label>
+            <textarea id="rp" name="rp" rows="2" required></textarea>
+
+            <label for="ooc">Apa itu OOC (wajib tahu):</label>
+            <textarea id="ooc" name="ooc" rows="2" required></textarea>
+
+            <label for="ic">Apa itu IC (wajib tahu):</label>
+            <textarea id="ic" name="ic" rows="2" required></textarea>
+
+            <label for="tujuan">Tujuan bergabung OHC:</label>
+            <textarea id="tujuan" name="tujuan" rows="2" required></textarea>
+
+            <label for="headset">Bisa memakai headset/mic saat RP:</label>
+            <select id="headset" name="headset" required>
+                <option value="ya">Ya</option>
+                <option value="tidak">Tidak</option>
+            </select>
+
+            <label for="pengalaman">Punya pengalaman RP:</label>
+            <select id="pengalaman" name="pengalaman" required>
+                <option value="ya">Ya</option>
+                <option value="tidak">Tidak</option>
+            </select>
+
+            <label for="akun_tt_yt">Punya akun TikTok/YouTube:</label>
+            <input type="text" id="akun_tt_yt" name="akun_tt_yt">
+
+            <label for="siap_voice">Siap menggunakan voice:</label>
+            <select id="siap_voice" name="siap_voice" required>
+                <option value="ya">Ya</option>
+                <option value="tidak">Tidak</option>
+            </select>
+
+            <label for="siap_on">Siap online saat ada RP:</label>
+            <select id="siap_on" name="siap_on" required>
+                <option value="ya">Ya</option>
+                <option value="tidak">Tidak</option>
+            </select>
+
+            <button type="submit" class="button">Kirim Formulir</button>
+        </form>
+        <div class="rules">
+            <strong>Rules:</strong> Tidak online selama 3 hari = kick (no drama).
+        </div>
+        <div class="footer">
+            <p>Copyright By Kayru</p>
+            <span class="highlight">BELI HOSTING DI GUA (SKAY)</span>
+        </div>
+    </div>
+</body>
+</html>
